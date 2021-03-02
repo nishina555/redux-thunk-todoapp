@@ -2,7 +2,7 @@ import { ActionTypes } from "./actionTypes";
 import { TodoItem, RootState } from "./types";
 import { Dispatch } from "redux";
 import { ThunkAction } from "redux-thunk";
-import axiosInstance from "../api/index";
+import TodosApiService from "../api/todos";
 
 type SetTodosAction = {
   type: ActionTypes.SET_TODOS;
@@ -20,10 +20,8 @@ export const fetchTodos = (): ThunkAction<
   unknown,
   TodoActions
 > => async (dispatch: Dispatch<TodoActions>) => {
-  const response = await axiosInstance.get(`todos`).catch((error) => {
-    throw new Error(error.message);
-  });
-  dispatch(setTodos(response.data));
+  const todos = await TodosApiService.getAll();
+  dispatch(setTodos(todos));
 };
 
 export type TodoActions = SetTodosAction;
