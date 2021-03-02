@@ -1,26 +1,17 @@
 import React, { useEffect } from "react";
 import Todo from "./Todo";
-import { setTodos, TodoActions } from "../redux/actions";
+import { fetchTodos } from "../redux/actions";
 import { RootState } from "../redux/types";
 import { connect } from "react-redux";
 import { TodoItem } from "../redux/types";
-import axios from "axios";
 
 type TodoListProps = {
   todos: Array<TodoItem>;
-  setTodos: (todos: Array<TodoItem>) => TodoActions;
+  fetchTodos: () => void;
 };
 
-const TodoList: React.FC<TodoListProps> = ({ todos, setTodos }) => {
+const TodoList: React.FC<TodoListProps> = ({ todos, fetchTodos }) => {
   useEffect(() => {
-    const fetchTodos = async () => {
-      const response = await axios
-        .get(`http://localhost:4000/todos`)
-        .catch((error) => {
-          throw new Error(error.message);
-        });
-      setTodos(response.data);
-    };
     fetchTodos();
   }, []);
   return (
@@ -38,4 +29,4 @@ const mapStateToProps = (state: RootState) => {
   const todos = state.todos.todoItems;
   return { todos };
 };
-export default connect(mapStateToProps, { setTodos })(TodoList);
+export default connect(mapStateToProps, { fetchTodos })(TodoList);
