@@ -1,13 +1,13 @@
-export interface TodoItem {
+export type TodoItem = {
   id: number;
   content: string;
   completed: boolean;
-}
+};
 
-export interface TodoState {
+export type TodoState = {
   todoItems: Array<TodoItem>;
-}
+};
 
-export interface RootState {
+export type RootState = {
   todos: TodoState;
-}
+};
