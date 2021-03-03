@@ -6,7 +6,14 @@ import { TodoActions } from "../actions";
 const initialState: VisibilityFilterTypes = VISIBILITY_FILTERS.ALL;
 
 const visibilityFilter = (state = initialState, action: TodoActions) => {
-  return state;
+  switch (action.type) {
+    case ActionTypes.SET_FILTER: {
+      return action.payload.filter;
+    }
+    default: {
+      return state;
+    }
+  }
 };
 
 export default visibilityFilter;

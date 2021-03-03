@@ -1,5 +1,5 @@
 import { ActionTypes } from "./actionTypes";
-import { TodoItem, RootState } from "./types";
+import { TodoItem, RootState, VisibilityFilterTypes } from "./types";
 import { Dispatch } from "redux";
 import { ThunkAction } from "redux-thunk";
 import TodosApiService, { PostTodoItem } from "../api/todos";
@@ -52,6 +52,18 @@ export const fetchTodos = (): ThunkAction<
   dispatch(setTodos(todos));
 };
 
+type SetFilterAction = {
+  type: ActionTypes.SET_FILTER;
+  payload: {
+    filter: VisibilityFilterTypes;
+  };
+};
+
+export const setFilter = (filter: VisibilityFilterTypes): SetFilterAction => ({
+  type: ActionTypes.SET_FILTER,
+  payload: { filter },
+});
+
 export const postTodo = (
   input: string
 ): ThunkAction<void, RootState, unknown, TodoActions> => async (
@@ -74,4 +86,8 @@ export const patchTodo = (todo: TodoItem) => async (
   dispatch(toggleTodo(todo.id));
 };
 
-export type TodoActions = SetTodosAction | AddTodoAction | ToggleTodoAction;
+export type TodoActions =
+  | SetTodosAction
+  | AddTodoAction
+  | ToggleTodoAction
+  | SetFilterAction;
