@@ -30,6 +30,18 @@ export const addTodo = (content: string, id: number): AddTodoAction => ({
   },
 });
 
+type ToggleTodoAction = {
+  type: ActionTypes.TOGGLE_TODO;
+  payload: {
+    id: number;
+  };
+};
+
+export const toggleTodo = (id: number): ToggleTodoAction => ({
+  type: ActionTypes.TOGGLE_TODO,
+  payload: { id },
+});
+
 export const fetchTodos = (): ThunkAction<
   void,
   RootState,
@@ -55,4 +67,11 @@ export const postTodo = (
   dispatch(addTodo(todo.content, todos.todoItems.length));
 };
 
-export type TodoActions = SetTodosAction | AddTodoAction;
+export const patchTodo = (todo: TodoItem) => async (
+  dispatch: Dispatch<TodoActions>
+) => {
+  await TodosApiService.toggle(todo);
+  dispatch(toggleTodo(todo.id));
+};
+
+export type TodoActions = SetTodosAction | AddTodoAction | ToggleTodoAction;
