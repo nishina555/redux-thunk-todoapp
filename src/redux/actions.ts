@@ -42,16 +42,6 @@ export const toggleTodo = (id: number): ToggleTodoAction => ({
   payload: { id },
 });
 
-export const fetchTodos = (): ThunkAction<
-  void,
-  RootState,
-  unknown,
-  TodoActions
-> => async (dispatch: Dispatch<TodoActions>) => {
-  const todos = await TodosApiService.getAll();
-  dispatch(setTodos(todos));
-};
-
 type SetFilterAction = {
   type: ActionTypes.SET_FILTER;
   payload: {
@@ -63,6 +53,16 @@ export const setFilter = (filter: VisibilityFilterTypes): SetFilterAction => ({
   type: ActionTypes.SET_FILTER,
   payload: { filter },
 });
+
+export const fetchTodos = (): ThunkAction<
+  void,
+  RootState,
+  unknown,
+  TodoActions
+> => async (dispatch: Dispatch<TodoActions>) => {
+  const todos = await TodosApiService.getAll();
+  dispatch(setTodos(todos));
+};
 
 export const postTodo = (
   input: string
