@@ -10,7 +10,7 @@ export default function TodoApp() {
       <h1>Todo List</h1>
       <AddTodo />
       <TodoList />
-      {/* <VisibilityFilters /> */}
+      <VisibilityFilters />
     </div>
   );
 }
