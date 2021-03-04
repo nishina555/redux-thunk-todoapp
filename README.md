@@ -3,7 +3,7 @@ APIから取得したTodoリストを表示・更新できるTodoリストです
 
 React Reduxの公式ドキュメント内で紹介されている[Basic Tutorial](https://react-redux.js.org/introduction/basic-tutorial)のTodoアプリがベースとなっています。
 
-実装の詳細については[Todoアプリで理解する、Redux Thunkによる非同期処理の実装方法](https://nishinatoshiharu.com/redux-thunk-axios-tutorial/)をご覧になってください。
+実装の詳細については[Todoアプリで理解するRedux Thunkによる非同期処理の実装方法](https://nishinatoshiharu.com/redux-thunk-axios-tutorial/)をご覧になってください。
 
 <kbd><img width="268" alt="スクリーンショット 2021-02-14 14 13 12" src="https://user-images.githubusercontent.com/3121046/109912319-27b2f680-7cef-11eb-99f1-36c52895ddcd.png"></kbd>
 
