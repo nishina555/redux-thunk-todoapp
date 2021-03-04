@@ -47,5 +47,5 @@ $ yarn start
 
 ---
 
-This is a Todo App written in TypeScript for studying Redux Thunk
+This is a Todo App written in TypeScript for studying Redux Thunk.
 The app is based on the one introduced to [React Redux tutorial]((https://react-redux.js.org/introduction/basic-tutorial)).
