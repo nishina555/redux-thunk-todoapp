@@ -19,11 +19,9 @@ class Todos {
     });
   }
   static async patch(todo: TodoItem) {
-    try {
-      await axiosInstance.patch(`todos/${todo.id}`, todo);
-    } catch (error) {
-      throw error;
-    }
+    await axiosInstance.patch(`todos/${todo.id}`, todo).catch((error) => {
+      throw new Error(error.message);
+    });
   }
   static async toggle(todo: TodoItem) {
     let toggledTodo = Object.assign({}, todo, { completed: !todo.completed });
