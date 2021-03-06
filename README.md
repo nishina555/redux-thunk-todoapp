@@ -5,6 +5,8 @@ React Reduxの公式ドキュメント内で紹介されている[Basic Tutorial
 
 実装の詳細については[Todoアプリで理解するRedux Thunkによる非同期処理の実装方法](https://nishinatoshiharu.com/redux-thunk-axios-tutorial/)をご覧になってください。
 
+Redux ToolkitのAPI(createSlice, createAsyncThunk)を利用した実装については[nishina555/reduxtoolkit-thunk-todoapp](https://github.com/nishina555/reduxtoolkit-thunk-todoapp)で別途公開しております。
+
 <kbd><img width="268" alt="スクリーンショット 2021-02-14 14 13 12" src="https://user-images.githubusercontent.com/3121046/109912319-27b2f680-7cef-11eb-99f1-36c52895ddcd.png"></kbd>
 
 
